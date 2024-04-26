@@ -1,0 +1,23 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "COMP378: Database Systems final project",
+  "main": "behaviors.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FutzMonitor/database2024-final.git"
+  },
+  "author": "@FutzMonitor @Boosungkim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FutzMonitor/database2024-final/issues"
+  },
+  "homepage": "https://github.com/FutzMonitor/database2024-final#readme",
+  "keywords": [],
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}
