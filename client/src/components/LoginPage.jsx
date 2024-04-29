@@ -31,14 +31,16 @@ const LoginPage = () => {
       }
     
       try {
-        const response = await axios.post('http://localhost:3001/api/login', { email, password });
-        console.log(response.email)
-        console.log(response.password)
+        const response = await axios.post('http://localhost:3001/api/login', { email, password, userType }); // Include userType in the data object
         if (response.data.userType === 'student') {
           console.log("Navigating to /student")
-          navigate('/student');
+          navigate('/student', { state: { studentId: response.data.studentId, studentName: response.data.studentName } });
         } else if (response.data.userType === 'faculty') {
-          navigate('/faculty');
+          console.log("Navigating to /faculty")
+          navigate('/faculty', { state: { facultyId: response.data.studentId, facultyName: response.data.studentName } });
+        } else if (response.data.userType === 'librarian') {
+          console.log("Navigating to /librarian")
+          navigate('/librarian', { state: { librarianId: response.data.studentId, librarianName: response.data.studentName } });
         }
       } catch (err) {
         setError('Login failed: ' + (err.response?.data?.error || 'Unknown Error'));
