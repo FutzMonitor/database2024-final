@@ -5,11 +5,8 @@ import { useLocation } from 'react-router-dom';
 
 const StudentPage = () => {
   const location = useLocation();
-  const studentId = location.state.userId;
-  const studentName = location.state.userName;
-
-//             user = await db.get("SELECT *, 'librarian' as userType FROM librarian WHERE email = ?", [email]);
-
+  const studentId = location.state.studentId;
+  const studentName = location.state.studentName;
 
   const [borrowedBooks, setBorrowedBooks] = useState([]);
   const [transactions, setTransactions] = useState([]);
@@ -138,9 +135,6 @@ const StudentPage = () => {
         ))}
       </ul>
 
-      <h2>Student's borrowed books</h2>
-      {/* be able to return here */}
-      {/* display if overdue */}
       <h2>Student's Borrowed Books</h2>
       <ul>
         {borrowedBooks.map(book => (
