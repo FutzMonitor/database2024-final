@@ -285,7 +285,6 @@ app.get('/api/borrowed-books-per-genre', async (req, res) => {
             SELECT books.category, COUNT(*) as count
             FROM transactions
             INNER JOIN books ON transactions.book_id = books.isbn
-            WHERE transactions.checkin_date IS NULL
             GROUP BY books.category
         `;
         const borrowedBooksPerGenre = await db.all(query);

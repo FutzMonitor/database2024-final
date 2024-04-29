@@ -40,7 +40,6 @@ const AddBookForm = () => {
 
     return (
         <div>
-            <h2>Add New Book</h2>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input type="text" name="title" value={formData.title} onChange={handleChange} />

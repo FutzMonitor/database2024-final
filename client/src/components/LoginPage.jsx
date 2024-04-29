@@ -53,9 +53,6 @@ const LoginPage = () => {
         <div className="container h-100">
           <div className="row justify-content-md-center h-100">
             <div className="card-wrapper">
-              <div className="brand">
-                <img src="imgs/logo.jpg" alt="logo" />
-              </div>
               <div className="card fat">
                 <div className="card-body">
                   <h4 className="card-title">Login</h4>
@@ -76,7 +73,6 @@ const LoginPage = () => {
                         <option value="student">Student</option>
                         <option value="faculty">Faculty</option>
                         <option value="librarian">Librarian</option>
-                        <option value="admin">Admin</option>
                       </select>
                     </div>
 

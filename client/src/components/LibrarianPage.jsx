@@ -124,7 +124,7 @@ const LibrarianPage = () => {
       <ul>
         {borrowedBooks.map(book => (
           <li key={book.book_id}>
-            {book.title} by {book.author} - Due Date: {book.dueDate} - Borrower: {book.student_id}
+            {book.title} by {book.author} - Due Date: {book.dueDate} - Borrower ID: {book.student_id}
             {isOverdue(book.dueDate) && <span style={{ color: 'red' }}> (Overdue)</span>}
           </li>
         ))}
