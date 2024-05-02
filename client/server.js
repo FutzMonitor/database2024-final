@@ -237,6 +237,12 @@ app.post('/api/login', async (req, res) => {
         db = await openDb();
         // Check in students table
         let user = await db.get("SELECT *, 'student' as userType FROM students WHERE email = ?", [email]);
+
+        // If not found, check in faculties table
+        if (!user) {
+            user = await db.get("SELECT *, 'faculty' as userType FROM faculty WHERE email = ?", [email]);
+        }
+        
         // If not found, check in faculties table
         if (!user) {
             user = await db.get("SELECT *, 'librarian' as userType FROM librarian WHERE email = ?", [email]);

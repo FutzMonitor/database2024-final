@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 
 const FacultyPage = () => {
   const location = useLocation();
-  const facultyId = location.state.facultyId;
+  const studentId = location.state.studentId;
   const studentName = location.state.studentName;
 
   const [borrowedBooks, setBorrowedBooks] = useState([]);
@@ -40,7 +43,7 @@ const FacultyPage = () => {
     try {
         const response = await axios.post('http://localhost:3001/api/borrow', {
             bookIsbn: selectedIsbn,
-            facultyId: facultyId,
+            studentId: studentId,
             librarianId: "0"
         });
         console.log("Borrow response:", response.data);
@@ -132,10 +135,7 @@ const FacultyPage = () => {
         ))}
       </ul>
 
-      <h2>Student's borrowed books</h2>
-      {/* be able to return here */}
-      {/* display if overdue */}
-      <h2>Student's Borrowed Books</h2>
+      <h2>Faculty's Borrowed Books</h2>
       <ul>
         {borrowedBooks.map(book => (
           <li key={book.book_id}>
